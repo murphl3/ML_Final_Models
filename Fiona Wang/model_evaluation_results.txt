@@ -1,0 +1,61 @@
+Model Evaluation Results
+========================
+
+Best Model Name: MLP
+Best Parameters for MLP: {'classifier__activation': 'relu', 'classifier__alpha': 0.1, 'classifier__early_stopping': True, 'classifier__hidden_layer_sizes': (16, 8), 'classifier__learning_rate_init': 0.01, 'classifier__max_iter': 3000, 'classifier__n_iter_no_change': 10, 'classifier__solver': 'adam', 'classifier__tol': 0.0001, 'classifier__validation_fraction': 0.1}
+MLP Validation Accuracy: 0.93
+              precision    recall  f1-score   support
+
+           0       0.94      0.98      0.96      1265
+           1       0.90      0.77      0.83       335
+
+    accuracy                           0.93      1600
+   macro avg       0.92      0.87      0.89      1600
+weighted avg       0.93      0.93      0.93      1600
+MLP Test Accuracy: 0.94
+              precision    recall  f1-score   support
+
+           0       0.95      0.98      0.96      1595
+           1       0.89      0.79      0.84       405
+
+    accuracy                           0.94      2000
+   macro avg       0.92      0.88      0.90      2000
+weighted avg       0.94      0.94      0.94      2000
+Best Parameters for SVM: {'classifier__C': 10, 'classifier__kernel': 'rbf'}
+SVM Validation Accuracy: 0.93
+              precision    recall  f1-score   support
+
+           0       0.94      0.98      0.96      1265
+           1       0.90      0.76      0.83       335
+
+    accuracy                           0.93      1600
+   macro avg       0.92      0.87      0.89      1600
+weighted avg       0.93      0.93      0.93      1600
+SVM Test Accuracy: 0.93
+              precision    recall  f1-score   support
+
+           0       0.95      0.97      0.96      1595
+           1       0.86      0.80      0.83       405
+
+    accuracy                           0.93      2000
+   macro avg       0.90      0.88      0.89      2000
+weighted avg       0.93      0.93      0.93      2000
+Best Parameters for LogisticRegression: {'classifier__C': 10, 'classifier__penalty': 'l2', 'classifier__solver': 'liblinear'}
+LogisticRegression Validation Accuracy: 0.92
+              precision    recall  f1-score   support
+
+           0       0.91      0.99      0.95      1265
+           1       0.95      0.64      0.76       335
+
+    accuracy                           0.92      1600
+   macro avg       0.93      0.81      0.86      1600
+weighted avg       0.92      0.92      0.91      1600
+LogisticRegression Test Accuracy: 0.92
+              precision    recall  f1-score   support
+
+           0       0.92      0.99      0.95      1595
+           1       0.93      0.66      0.77       405
+
+    accuracy                           0.92      2000
+   macro avg       0.93      0.82      0.86      2000
+weighted avg       0.92      0.92      0.92      2000
