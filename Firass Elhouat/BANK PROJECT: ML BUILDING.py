@@ -43,43 +43,11 @@ def More_then_One_Pro(row):
 ChurnData['Customer_Sentiment'] = ChurnData.apply(Customer_Sentiment, axis=1)
 ChurnData['More_then_One_Pro'] = ChurnData.apply(More_then_One_Pro, axis=1)
 
-sns.countplot(x='Customer_Sentiment', data=ChurnData, palette="seismic", hue='Exited')
-plt.show()
-sns.countplot(x='More_then_One_Pro', data=ChurnData, palette="seismic", hue='Exited')
-plt.show()
-
-# Get counts of each sentiment category
-sentiment_counts_by_exited = ChurnData.groupby('Exited')['Customer_Sentiment'].value_counts().unstack(fill_value=0)
-
-# Convert the result into a DataFrame
-sentiment_counts_df = sentiment_counts_by_exited.reset_index()
-
-# Print the DataFrame
-# Display the full DataFrame without truncation
-pd.set_option('display.max_rows', None)  # To display all rows
-pd.set_option('display.max_columns', None)  # To display all columns
-print(sentiment_counts_df)
-
 # Data Preprocessing: Drop unnecessary columns
 ChurnData_filtered = ChurnData.drop(columns=['Surname', 'RowNumber', 'Complain', 'Satisfaction Score', 'NumOfProducts','CustomerId'])
 
 # One-Hot Encoding for categorical variables
 ChurnData_encoded = pd.get_dummies(ChurnData_filtered, drop_first=True)
-
-# Correlation Analysis
-correlation_matrix = ChurnData_encoded.corr()
-
-# Correlation Heatmap
-mask = np.tril(np.ones_like(correlation_matrix, dtype=bool))  # Create a mask for the upper triangle
-
-plt.figure(figsize=(9, 6))  # Keep the original figure size
-ax = sns.heatmap(correlation_matrix, annot=True, cmap='seismic',
-                 linewidths=0.1, annot_kws={"size": 5}, fmt=".2f")
-ax.tick_params(axis='x', labelsize=5)
-ax.tick_params(axis='y', labelsize=6)
-plt.xticks(rotation=25, ha='right')  # Rotate labels 45 degrees for better readability
-plt.title('Correlation Heatmap')
-plt.show()
 
 # Extracting Only X features
 X = ChurnData_encoded.drop('Exited', axis=1)  # Features
